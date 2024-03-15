@@ -63,7 +63,7 @@ function updateCartModal(){
     const cartItemElement = document.createElement('div');
     cartItemElement.classList.add('flex', 'justify-between', 'mb-4', 'flex-col')
     cartItemElement.innerHTML = `
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between border-2 rounded p-2">
         <div>
           <p class="font-medium">${item.name}</p>
           <p>Qtd: ${item.quantity}</p>
@@ -92,6 +92,9 @@ function updateCartModal(){
 }
 
 cartItemsContainer.addEventListener('click', function(event){
+
+  let parentButton = event.target.closest('.add-to-cart-btn')
+
   if(event.target.classList.contains("remove-from-cart-btn")){
     const name = event.target.getAttribute("data-name")
     
